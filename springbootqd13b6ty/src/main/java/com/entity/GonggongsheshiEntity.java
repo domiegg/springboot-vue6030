@@ -1,0 +1,218 @@
+package com.entity;
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.lang.reflect.InvocationTargetException;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.apache.commons.beanutils.BeanUtils;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+
+/**
+ * 公共设施
+ * 数据库通用操作实体类（普通增删改查）
+ * @author 
+ * @email 
+ * @date 2024-04-06 17:02:07
+ */
+@TableName("gonggongsheshi")
+public class GonggongsheshiEntity<T> implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+
+	public GonggongsheshiEntity() {
+		
+	}
+	
+	public GonggongsheshiEntity(T t) {
+		try {
+			BeanUtils.copyProperties(this, t);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 主键id
+	 */
+    @TableId(type = IdType.AUTO)
+    private Long id;
+	/**
+	 * 设施名称
+	 */
+					
+	private String sheshimingcheng;
+	
+	/**
+	 * 设施图片
+	 */
+					
+	private String sheshitupian;
+	
+	/**
+	 * 设施位置
+	 */
+					
+	private String sheshiweizhi;
+	
+	/**
+	 * 设施视频
+	 */
+					
+	private String sheshishipin;
+	
+	/**
+	 * 设施详情
+	 */
+					
+	private String sheshixiangqing;
+	
+	/**
+	 * 赞
+	 */
+					
+	private Integer thumbsupnum;
+	
+	/**
+	 * 踩
+	 */
+					
+	private Integer crazilynum;
+	
+	/**
+	 * 收藏数
+	 */
+					
+	private Integer storeupnum;
+	
+	
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat
+	private Date addtime;
+
+	public Date getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(Date addtime) {
+		this.addtime = addtime;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * 设置：设施名称
+	 */
+	public void setSheshimingcheng(String sheshimingcheng) {
+		this.sheshimingcheng = sheshimingcheng;
+	}
+	/**
+	 * 获取：设施名称
+	 */
+	public String getSheshimingcheng() {
+		return sheshimingcheng;
+	}
+	/**
+	 * 设置：设施图片
+	 */
+	public void setSheshitupian(String sheshitupian) {
+		this.sheshitupian = sheshitupian;
+	}
+	/**
+	 * 获取：设施图片
+	 */
+	public String getSheshitupian() {
+		return sheshitupian;
+	}
+	/**
+	 * 设置：设施位置
+	 */
+	public void setSheshiweizhi(String sheshiweizhi) {
+		this.sheshiweizhi = sheshiweizhi;
+	}
+	/**
+	 * 获取：设施位置
+	 */
+	public String getSheshiweizhi() {
+		return sheshiweizhi;
+	}
+	/**
+	 * 设置：设施视频
+	 */
+	public void setSheshishipin(String sheshishipin) {
+		this.sheshishipin = sheshishipin;
+	}
+	/**
+	 * 获取：设施视频
+	 */
+	public String getSheshishipin() {
+		return sheshishipin;
+	}
+	/**
+	 * 设置：设施详情
+	 */
+	public void setSheshixiangqing(String sheshixiangqing) {
+		this.sheshixiangqing = sheshixiangqing;
+	}
+	/**
+	 * 获取：设施详情
+	 */
+	public String getSheshixiangqing() {
+		return sheshixiangqing;
+	}
+	/**
+	 * 设置：赞
+	 */
+	public void setThumbsupnum(Integer thumbsupnum) {
+		this.thumbsupnum = thumbsupnum;
+	}
+	/**
+	 * 获取：赞
+	 */
+	public Integer getThumbsupnum() {
+		return thumbsupnum;
+	}
+	/**
+	 * 设置：踩
+	 */
+	public void setCrazilynum(Integer crazilynum) {
+		this.crazilynum = crazilynum;
+	}
+	/**
+	 * 获取：踩
+	 */
+	public Integer getCrazilynum() {
+		return crazilynum;
+	}
+	/**
+	 * 设置：收藏数
+	 */
+	public void setStoreupnum(Integer storeupnum) {
+		this.storeupnum = storeupnum;
+	}
+	/**
+	 * 获取：收藏数
+	 */
+	public Integer getStoreupnum() {
+		return storeupnum;
+	}
+
+}
